@@ -4,5 +4,41 @@
   "appFolders": [],
   "testFolders": [],
   "bcptTestFolders": [],
-  "VersioningStrategy": 16
+  "VersioningStrategy": 16,
+  "repoVersion": "1.0",
+  "type": "PTE",
+  "enableCodeCop": true,
+  "enableAppSourceCop": true,
+  "enablePerTenantExtensionCop": true,
+  "enableUICop": true,
+  "failOn": "warning",
+  "doNotBuildTests": false,
+  "doNotRunTests": false,
+  "installTestRunner": true,
+  "installTestFramework": true,
+  "installTestLibraries": true,
+  "installPerformanceToolkit": true,
+  "bcContainerHelperVersion": "latest",
+  "gitHubRunner": "windows-latest",
+  "gitHubRunnerShell": "powershell",
+  "environments": [
+    {
+      "name": "Development",
+      "settings": {
+        "companyName": "Boopa Bagels Inc.",
+        "enableSymbolLoading": true,
+        "includeTestToolkit": true,
+        "includePerformanceToolkit": true,
+        "memoryLimit": "8G",
+        "enableApiServices": true
+      }
+    }
+  ],
+  "CICDPushBranches": [ "main", "develop", "release/*" ],
+  "CICDPullRequestBranches": [ "main" ],
+  "CICDSchedule": "0 2 * * 1-5",
+  "applicationInsightsConnectionString": "",
+  "authContextSecrets": {
+    "scopes": "https://api.businesscentral.dynamics.com/.default"
+  }
 }

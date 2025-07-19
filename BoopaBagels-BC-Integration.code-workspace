@@ -1,8 +1,41 @@
 {
   "folders": [
     {
-      "path": ".AL-Go"
+      "name": "AL-Go",
+      "path": "./.AL-Go"
+    },
+    {
+      "name": "BoopaBagels.BC.Integration.AL",
+      "path": "./"
     }
   ],
-  "settings": {}
+  "settings": {
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+      "${CodeCop}",
+      "${UICop}",
+      "${PerTenantExtensionCop}",
+      "${AppSourceCop}"
+    ],
+    "al.enableCodeActions": true,
+    "al.ruleSetPath": "./ruleset.json",
+    "files.exclude": {
+      "**/.alpackages": true,
+      "**/rad.json": true,
+      "**/.vscode": true
+    },
+    "git.ignoreLimitWarning": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dynamics-smb.al",
+      "GitHub.vscode-pull-request-github",
+      "ms-vscode.powershell"
+    ]
+  }
 }
