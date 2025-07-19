@@ -18,18 +18,6 @@ page 50001 "BoopaBagels API Test Console"
                     Caption = 'Base URL';
                     ToolTip = 'Enter the Business Central API base URL';
                 }
-                field(CompanyId; CompanyId)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Company ID';
-                    ToolTip = 'Enter the Company ID (GUID)';
-                }
-                field(AuthMethod; AuthMethod)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Authentication Method';
-                    ToolTip = 'Select the authentication method';
-                }
             }
             group(TestResults)
             {
@@ -62,7 +50,7 @@ page 50001 "BoopaBagels API Test Console"
                 ApplicationArea = All;
                 Caption = 'Test Connection';
                 Image = TestFile;
-                ToolTip = 'Test the API connection with current settings';
+                ToolTip = 'Test the API connection';
 
                 trigger OnAction()
                 begin
@@ -74,8 +62,6 @@ page 50001 "BoopaBagels API Test Console"
 
     var
         BaseUrl: Text[250];
-        CompanyId: Text[50];
-        AuthMethod: Text[50];
         StatusCode: Integer;
         ResponseBody: Text;
 
@@ -85,11 +71,11 @@ page 50001 "BoopaBagels API Test Console"
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
         ResponseText: Text;
-        ErrorIntelligence: Codeunit "BoopaBagels Error Intelligence";
     begin
         try
-            if BaseUrl = '' then
+            if BaseUrl = '' then begin
                 Error('Please enter a Base URL');
+            end;
 
             HttpRequestMessage.Method := 'GET';
             HttpRequestMessage.SetRequestUri(BaseUrl + '/api/v2.0/companies');
@@ -99,33 +85,15 @@ page 50001 "BoopaBagels API Test Console"
                 HttpResponseMessage.Content().ReadAs(ResponseText);
                 ResponseBody := CopyStr(ResponseText, 1, MaxStrLen(ResponseBody));
                 
-                if HttpResponseMessage.IsSuccessStatusCode() then
-                    Message('Connection successful! Status: %1', StatusCode)
-                else begin
-                    ErrorIntelligence.LogError(
-                        'API_CONNECTION_FAILED',
-                        StrSubstNo('HTTP %1: Connection test failed', StatusCode),
-                        ResponseText,
-                        'TestAPIConnection',
-                        BaseUrl);
+                if HttpResponseMessage.IsSuccessStatusCode() then begin
+                    Message('Connection successful! Status: %1', StatusCode);
+                end else begin
                     Error('Connection failed with status code: %1', StatusCode);
                 end;
             end else begin
-                ErrorIntelligence.LogError(
-                    'API_CONNECTION_ERROR',
-                    'Failed to send HTTP request',
-                    'Unable to establish connection',
-                    'TestAPIConnection',
-                    BaseUrl);
                 Error('Failed to send request to %1', BaseUrl);
             end;
         except
-            ErrorIntelligence.LogError(
-                'API_CONNECTION_EXCEPTION',
-                GetLastErrorText(),
-                StrSubstNo('BaseUrl: %1', BaseUrl),
-                'TestAPIConnection',
-                BaseUrl);
             Error('Connection test failed: %1', GetLastErrorText());
         end;
     end;
