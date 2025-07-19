@@ -1,32 +1,32 @@
 {
     "id": "12345678-1234-1234-1234-123456789012",
-    "name": "BoopaBagels.BC.Integration.AL",
+    "name": "BoopaBagels Error Intelligence",
     "publisher": "Boopa Bagels Inc",
     "version": "1.0.0.0",
-    "brief": "Boopa Bagels Business Central Integration Extensions",
-    "description": "Advanced AL extensions for bakery operations with comprehensive error logging, API integration, and intelligent feedback loops",
-    "privacyStatement": "",
-    "EULA": "",
-    "help": "",
-    "url": "",
+    "brief": "Boopa Bagels Error Intelligence Extension",
+    "description": "Advanced error intelligence system with pattern recognition, auto-resolution, and comprehensive API testing capabilities for Business Central bakery operations",
+    "privacyStatement": "https://github.com/BoopasBagelDeli/BoopaBagels-BC-Integration",
+    "EULA": "https://github.com/BoopasBagelDeli/BoopaBagels-BC-Integration",
+    "help": "https://github.com/BoopasBagelDeli/BoopaBagels-BC-Integration",
+    "url": "https://github.com/BoopasBagelDeli/BoopaBagels-BC-Integration",
     "logo": "",
     "dependencies": [
         {
             "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
             "publisher": "Microsoft",
             "name": "System Application",
-            "version": "23.0.0.0"
+            "version": "18.0.0.0"
         },
         {
             "id": "437dbf0e-84ff-417a-965d-ed2bb9650972",
-            "publisher": "Microsoft", 
+            "publisher": "Microsoft",
             "name": "Base Application",
-            "version": "23.0.0.0"
+            "version": "18.0.0.0"
         }
     ],
     "screenshots": [],
-    "platform": "23.0.0.0",
-    "application": "23.0.0.0",
+    "platform": "18.0.0.0",
+    "application": "18.0.0.0",
     "idRanges": [
         {
             "from": 50000,
@@ -38,8 +38,9 @@
         "allowDownloadingSource": false,
         "includeSourceInSymbolFile": false
     },
-    "runtime": "12.0",
+    "runtime": "8.0",
     "features": [
         "NoImplicitWith"
-    ]
+    ],
+    "target": "OnPrem"
 }

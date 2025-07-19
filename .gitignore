@@ -1,21 +1,43 @@
+# AL-Go for GitHub Files
+.AL-Go/localDevEnv.ps1
+.AL-Go/cloudDevEnv.ps1
+
+# AL Extension Files
 *.app
+*.app.runtime
 *.flf
-*.bclicense
-*.g.xlf
-.DS_Store
-Thumbs.db
-TestResults*.xml
-bcptTestResults*.json
-BuildOutput.txt
-rad.json
-.output/
-.dependencies/
-.buildartifacts/
 .alpackages/
-.packages/
-.alcache/
-.altemplates/
-.altestrunner/
+.netpackages/
+
+# VS Code AL Extension Files
+rad.json
+*.xlf
+launch.json
+
+# AL Development Files
+symbols/
 .snapshots/
-cache_*
-~$*
+
+# Build Output
+obj/
+bin/
+
+# Runtime Package Cache
+.netpackages/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.log
+
+# AL Test Results
+testResults.xml
