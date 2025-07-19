@@ -30,18 +30,6 @@ page 50001 "BoopaBagels API Test Console"
                     Caption = 'Authentication Method';
                     ToolTip = 'Select the authentication method';
                 }
-                field(ClientId; ClientId)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Client ID';
-                    ToolTip = 'Enter the OAuth 2.0 Client ID';
-                }
-                field(TenantId; TenantId)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Tenant ID';
-                    ToolTip = 'Enter the Azure AD Tenant ID';
-                }
             }
             group(TestResults)
             {
@@ -88,8 +76,6 @@ page 50001 "BoopaBagels API Test Console"
         BaseUrl: Text[250];
         CompanyId: Text[50];
         AuthMethod: Text[50];
-        ClientId: Text[100];
-        TenantId: Text[100];
         StatusCode: Integer;
         ResponseBody: Text;
 
